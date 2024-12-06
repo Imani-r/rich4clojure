@@ -10,10 +10,15 @@
 ;; sequence consisting of all the items of s for which (f
 ;; item) returns true.
 
-(def __ :tests-will-fail)
+(def __ [6 7])
 
 (comment
-  
+  (defn increasing? [& args]
+    (apply < args))
+
+  (> 3 4 5 6 7)
+
+  (increasing? 3 4 5 6 7)
   )
 
 (tests

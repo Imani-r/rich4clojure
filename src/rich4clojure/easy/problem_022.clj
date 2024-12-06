@@ -11,10 +11,18 @@
 
 (def restricted [count])
 
-(def __ :tests-will-fail)
+
+(defn f
+  "always returns 1"
+  [item] 1)
+
+(defn __ [els]
+  ; map every element in els to 1, then add all the 1s
+  (apply + (map f els)))
 
 (comment
-  
+  (defn f [item] 1)
+  (apply + (map f [:a :b :c]))
   )
 
 (tests

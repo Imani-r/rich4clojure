@@ -11,7 +11,8 @@
 
 (def restricted [nth])
 
-(def __ :tests-will-fail)
+(defn __ [coll index]
+  (get (vec coll) index))
 
 (comment
   

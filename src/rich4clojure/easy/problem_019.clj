@@ -11,7 +11,8 @@
 
 (def restricted [last])
 
-(def __ first)
+(defn __ [coll] 
+  (first (reverse coll)))
 
 (comment
   

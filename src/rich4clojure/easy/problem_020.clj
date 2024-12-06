@@ -9,10 +9,15 @@
 ;; Write a function which returns the second to last
 ;; element from a sequence.
 
-(def __ :tests-will-fail)
+(defn __ [arg]
+  (nth arg (-(count arg)2)) )
 
 (comment
-  
+  (def v [:a :b :c])
+  (nth v (- (count v) 2))
+
+  (def m [[3 4] [5 7]])
+  (nth m (- (count m) 2)) 
   )
 
 (tests

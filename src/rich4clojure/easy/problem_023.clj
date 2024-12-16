@@ -10,11 +10,20 @@
 
 (def restricted [reverse rseq])
 
-(def __ :tests-will-fail)
+(defn __ [l]
+  ;; bind i to the index of last element, 2nd to last,
+  ;; all the way to first element
+  (for [i (range (dec (count l)) -1 -1)]
+    ;; for each i, return element at ith position
+    (nth (seq l) i)))
 
-(comment
+(comment 
+  (let [l [:a :b :c :d]]
+   (for [i (range (dec (count l)) -1 -1)]
+     (nth l i)))
   
   )
+
 
 (tests
   (__ [1 2 3 4 5]) := [5 4 3 2 1]

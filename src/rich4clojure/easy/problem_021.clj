@@ -11,7 +11,9 @@
 
 (def restricted [nth])
 
-(defn __ [coll index]
+(defn __ [coll index] 
+  ;; convert coll to vector, 
+  ;; then return element at the index
   (get (vec coll) index))
 
 (comment

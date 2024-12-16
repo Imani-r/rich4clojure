@@ -9,7 +9,14 @@
 ;; Write a function which returns the first X fibonacci
 ;; numbers.
 
-(def __ :tests-will-fail)
+(defn __
+  "Recursion!"
+  [x]
+  (cond
+    (= x 1) '(1)
+    (= x 2) '(1 1)
+    :else (let [base (__ (dec x))]
+            (concat base [(apply + (take-last 2 base))]))))
 
 (comment
   

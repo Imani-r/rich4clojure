@@ -12,18 +12,22 @@
 ;; 
 ;; Hint: "racecar" does not equal '(\r \a \c \e \c \a \r)
 
-(def __ :tests-will-fail)
+(defn palindrome? [a]
+  (= (seq a) (reverse a))
+  )
 
 (comment
-  
+  (def a [3 5 6 5 3]) 
+  a 
+  (= (seq a) (reverse a))
   )
 
 (tests
-  (__ '(1 2 3 4 5)) :=
-  (__ "racecar") :=
-  (__ [:foo :bar :foo]) :=
-  (__ '(1 1 3 3 1 1)) :=
-  (__ '(:a :b :c)) :=)
+  (palindrome? '(1 2 3 4 5)) := false
+  (palindrome? "racecar") := true
+  (palindrome? [:foo :bar :foo]) := true
+  (palindrome? '(1 1 3 3 1 1)) := true
+  (palindrome? '(:a :b :c)) := false)
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/a9620760aad9da40c497f5750087a095

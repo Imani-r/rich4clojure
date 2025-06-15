@@ -9,17 +9,27 @@
 ;; Write a function which duplicates each element of a
 ;; sequence.
 
-(def __ :tests-will-fail)
+(defn double-elements [coll]
+  (apply concat (map (fn [x] (repeat 2 x)) coll))
+  )
 
 (comment
-  
+  (def a [1 2 3]) 
+  (def b [[1 2] [3 4]]) 
+
+  (->> (map (fn [x] (repeat 2 x)) b)
+       (apply concat)
+       ) 
+
+  ([:a :b :c] 1)
+
   )
 
 (tests
-  (__ [1 2 3]) := '(1 1 2 2 3 3)
-  (__ [:a :a :b :b]) := '(:a :a :a :a :b :b :b :b)
-  (__ [[1 2] [3 4]]) := '([1 2] [1 2] [3 4] [3 4])
-  (__ [[1 2] [3 4]]) := '([1 2] [1 2] [3 4] [3 4]))
+  (double-elements [1 2 3]) := '(1 1 2 2 3 3)
+  (double-elements [:a :a :b :b]) := '(:a :a :a :a :b :b :b :b)
+  (double-elements [[1 2] [3 4]]) := '([1 2] [1 2] [3 4] [3 4])
+  (double-elements [[1 2] [3 4]]) := '([1 2] [1 2] [3 4] [3 4]))
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/9e936a6097fdb1fd7a8418a22e3e1170

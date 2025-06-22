@@ -11,16 +11,20 @@
 
 (def restricted [range])
 
-(def __ :tests-will-fail)
+(defn my-range [a b] 
+  (take-while (fn [n] (< n b))
+              (iterate inc a)))
 
 (comment
+ (take-while (fn [n] (< n 4))
+             (iterate inc 1))
   
   )
 
 (tests
-  (__ 1 4) := '(1 2 3)
-  (__ -2 2) := '(-2 -1 0 1)
-  (__ 5 8) := '(5 6 7))
+  (my-range 1 4) := '(1 2 3)
+  (my-range -2 2) := '(-2 -1 0 1)
+  (my-range 5 8) := '(5 6 7))
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/6ebd843c6422d507efa327bee4bf0b50

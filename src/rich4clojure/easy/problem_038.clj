@@ -11,16 +11,39 @@
 
 (def restricted [max max-key])
 
-(def __ :tests-will-fail)
+(defn max-val [& args]
+  (first (sort > args)))
+
+(defn max-val2 [& args]
+  (reduce (fn [acc n]
+            (if (> n acc)
+              n
+              acc))
+          (first args)
+          (rest args)))
 
 (comment
-  
+
+  (defn foo [& args]
+    (prn args))
+
+  (first (sort > '(1 8 3 4)))
+
+  (reduce (fn [acc n]
+            (if (> n acc)
+              n
+              acc))
+          (first '(1 8 3 4))
+          (rest '(1 8 3 4)))
+
+
+
   )
 
 (tests
-  (__ 1 8 3 4) := 8
-  (__ 30 20) := 30
-  (__ 45 67 11) := 67)
+  (max-val 1 8 3 4) := 8
+  (max-val 30 20) := 30
+  (max-val 45 67 11) := 67)
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/3d8cce63160543ce69b40bc041174b28

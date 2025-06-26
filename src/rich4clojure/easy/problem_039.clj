@@ -12,17 +12,22 @@
 
 (def restricted [interleave])
 
-(def __ :tests-will-fail)
+(defn my-interleave [coll1 coll2]
+   (mapcat (fn [a b] (vector a b)) coll1 coll2))
 
 (comment
+  (lazy-seq)
+  (apply concat (map (fn [a b] (vector a b)) [1 2 3] [:a :b :c]))
   
+  (mapcat (fn [a b] (vector a b)) [1 2 3] [:a :b :c])
   )
 
+
 (tests
-  (__ [1 2 3] [:a :b :c]) := '(1 :a 2 :b 3 :c)
-  (__ [1 2] [3 4 5 6]) := '(1 3 2 4)
-  (__ [1 2 3 4] [5]) := [1 5]
-  (__ [30 20] [25 15]) := [30 25 20 15])
+ (my-interleave [1 2 3] [:a :b :c]) := '(1 :a 2 :b 3 :c)
+ (my-interleave [1 2] [3 4 5 6]) := '(1 3 2 4)
+ (my-interleave [1 2 3 4] [5]) := [1 5]
+ (my-interleave [30 20] [25 15]) := [30 25 20 15])
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/65d3ee0ffa567e78927bbebbb9d9cc89

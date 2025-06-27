@@ -16,7 +16,7 @@
   )
 
 (tests
-  __ := (take 5 (iterate #(+ 3 %) 1)))
+  '(1 4 7 10 13) := (take 5 (iterate #(+ 3 %) 1)))
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/f1da413cb1110daf97898dbf73113894
